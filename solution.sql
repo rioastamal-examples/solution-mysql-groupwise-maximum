@@ -1,7 +1,7 @@
 -- Author       : Rio Astamal <rio@rioastamal.net>
 -- Description  : Solution to SQL group-wise maximum problem
--- Link         :
--- Article      :
+-- Link         : https://github.com/rioastamal-examples/solution-mysql-groupwise-maximum
+-- Article      : https://www.linkedin.com/pulse/mysql-group-wise-maximum-query-nilai-tertinggi-pada-setiap-astamal/
 
 -- First, Let's display all top scores data to get some insight
 USE `groupwise_example`;
