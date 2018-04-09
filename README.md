@@ -3,7 +3,7 @@
 This example contains solution for SQL problem commonly known as Group-wise
 Maximum. We want to find the highest row in each group of rows. The solution
 shown here are using simple _self join_. Suppose we have sample data like
-below.
+this.
 
 ```
 +----+------------------+-------------------+-----------+-------+
@@ -55,7 +55,7 @@ INNER JOIN (
 ORDER by `ts1`.`goals` DESC;
 ```
 
-# Read More
+## Read More
 
 My complete article about MySQL Group-wise Maximum solution can be found
 on link below.
