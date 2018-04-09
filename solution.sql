@@ -44,7 +44,7 @@ SELECT * FROM `top_scores`;
 -- 8 rows in set (0.01 sec)
 
 -- It seems easy by using group by and order, ok let's try it!
-SELECT id, player, club, season, max(goals) as goals
+SELECT `id`, `player`, `club`, `season`, MAX(`goals`) AS `goals`
 FROM `top_scores` GROUP BY `club` ORDER BY `goals` DESC;
 --
 -- Wrong Result
@@ -72,7 +72,7 @@ FROM `top_scores` GROUP BY `club` ORDER BY `goals` DESC;
 
 -- Step #1
 -- Get the highest goals grouped by club, we do not need ordering at this point
-SELECT club, max(goals) as max_goals FROM top_scores GROUP BY club;
+SELECT `club`, MAX(`goals`) AS `max_goals` FROM `top_scores` GROUP BY `club`;
 --
 -- Result #1
 -- +-------------------+-------+
@@ -92,13 +92,13 @@ SELECT club, max(goals) as max_goals FROM top_scores GROUP BY club;
 -- Step #2
 -- We will do self join with Result #1, we will only match records which has
 -- the same club name and number of goals
-SELECT ts1.*
-FROM top_scores AS ts1
+SELECT `ts1`.*
+FROM `top_scores` AS `ts1`
 INNER JOIN (
-  SELECT club, max(goals) as max_goals FROM top_scores
-  GROUP BY club
-) AS ts2 ON ts2.club=ts1.club AND ts1.goals=ts2.max_goals
-ORDER by ts1.goals DESC;
+  SELECT `club`, MAX(`goals`) AS `max_goals` FROM `top_scores`
+  GROUP BY `club`
+) AS `ts2` ON `ts2`.`club`=`ts1`.`club` AND `ts2`.`max_goals`=`ts1`.`goals`
+ORDER by `ts1`.`goals` DESC;
 --
 -- +----+-----------------+-------------------+-----------+-------+
 -- | id | player          | club              | season    | goals |
